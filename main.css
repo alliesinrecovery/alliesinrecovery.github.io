@@ -91,7 +91,7 @@ header h1 {
 
 .link-label {
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: bold;
     color: #495057;
     letter-spacing: 0.5px;
 }
