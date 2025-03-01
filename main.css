@@ -24,7 +24,7 @@ body {
 
 header {
     text-align: center;
-    padding: 0 0 3rem 0;
+    padding: 0 0 2rem 0;
 }
 
 header h1 {
@@ -80,14 +80,13 @@ header h1 {
 
 .link-group {
     background-color: #f8f9fa;
-    border-radius: 8px;
     overflow: hidden;
 }
 
 .link-header {
     padding: 0.75rem 1rem;
     background-color: #f1f3f5;
-    border-bottom: 1px solid #e9ecef;
+    border-radius: 8px;
 }
 
 .link-label {
@@ -101,7 +100,7 @@ header h1 {
 .link-container {
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 0;
     gap: 1rem;
     background-color: white;
 }
