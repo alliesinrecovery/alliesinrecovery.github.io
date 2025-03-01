@@ -15,7 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
             link4Text.textContent = placeholderText.replace('{username}', '...').replace('{group}', '4');
             link1Text.classList.add('placeholder');
             link4Text.classList.add('placeholder');
-            copyButtons.forEach(btn => btn.disabled = true);
+            copyButtons.forEach(btn => {
+                btn.disabled = true;
+                btn.setAttribute('data-tooltip', 'Copy link');
+            });
             return;
         }
 
@@ -23,7 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
         link4Text.textContent = `${baseUrl}${username}/profile/edit/group/4/`;
         link1Text.classList.remove('placeholder');
         link4Text.classList.remove('placeholder');
-        copyButtons.forEach(btn => btn.disabled = false);
+        copyButtons.forEach(btn => {
+            btn.disabled = false;
+            btn.setAttribute('data-tooltip', 'Copy link');
+        });
     }
 
     // Initialize with placeholder
@@ -36,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle copy functionality
     copyButtons.forEach(button => {
+        button.setAttribute('data-tooltip', 'Copy link');
+        
         button.addEventListener('click', async () => {
             if (button.disabled) return;
             
@@ -51,12 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const icon = button.querySelector('i');
                 icon.classList.remove('fa-copy');
                 icon.classList.add('fa-check');
+                button.setAttribute('data-tooltip', 'Link copied!');
 
                 // Reset after 1.5 seconds
                 setTimeout(() => {
                     button.classList.remove('success');
                     icon.classList.remove('fa-check');
                     icon.classList.add('fa-copy');
+                    button.setAttribute('data-tooltip', 'Copy link');
                 }, 1500);
             } catch (err) {
                 console.error('Failed to copy text: ', err);
@@ -68,6 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 tempInput.select();
                 document.execCommand('copy');
                 document.body.removeChild(tempInput);
+                
+                // Still show success feedback
+                button.setAttribute('data-tooltip', 'Link copied!');
+                setTimeout(() => {
+                    button.setAttribute('data-tooltip', 'Copy link');
+                }, 1500);
             }
         });
     });

@@ -15,7 +15,8 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    min-width: 800px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 40px 20px;
     flex: 1;
@@ -23,11 +24,11 @@ body {
 
 header {
     text-align: center;
-    padding: 0 0 3rem 0;
+    padding: 0 0 2rem 0;
 }
 
 header h1 {
-    color: #1a1a1a;
+    color: #068b9a;
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -79,30 +80,29 @@ header h1 {
 
 .link-group {
     background-color: #f8f9fa;
-    border-radius: 8px;
     overflow: hidden;
 }
 
 .link-header {
     padding: 0.75rem 1rem;
     background-color: #f1f3f5;
-    border-bottom: 1px solid #e9ecef;
+    border-radius: 8px;
 }
 
 .link-label {
     font-size: 0.9rem;
     font-weight: 500;
     color: #495057;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .link-container {
     display: flex;
     align-items: center;
-    padding: 1rem;
-    gap: 1rem;
-    background-color: white;
+    padding: .5rem 0;
+    gap: .5rem;
+    position: relative;
+    /* background-color: white; */
 }
 
 .link-text {
@@ -119,8 +119,11 @@ header h1 {
 }
 
 .link-text.placeholder {
-    color: #adb5bd;
+    color: #d1d3d6;
     font-style: italic;
+    opacity: 0.7;
+    user-select: none;
+    cursor: default;
 }
 
 .copy-btn {
@@ -137,6 +140,31 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.copy-btn::after {
+    content: attr(data-tooltip);
+    position: fixed;
+    transform: translate(452%, -170%);
+    left: 50%;
+    padding: 4px 8px;
+    background-color: rgba(73, 80, 87, 0.95);
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.copy-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
 }
 
 .copy-btn:hover {
@@ -152,8 +180,6 @@ header h1 {
 .copy-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    background-color: #e9ecef;
-    color: #adb5bd;
 }
 
 .copy-btn:disabled:hover {
