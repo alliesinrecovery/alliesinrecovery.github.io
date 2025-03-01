@@ -15,8 +15,7 @@ body {
 }
 
 .container {
-    min-width: 800px;
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 40px 20px;
     flex: 1;
@@ -24,11 +23,11 @@ body {
 
 header {
     text-align: center;
-    padding: 0 0 2rem 0;
+    padding: 0 0 3rem 0;
 }
 
 header h1 {
-    color: #068b9a;
+    color: #1a1a1a;
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -80,28 +79,30 @@ header h1 {
 
 .link-group {
     background-color: #f8f9fa;
+    border-radius: 8px;
     overflow: hidden;
 }
 
 .link-header {
     padding: 0.75rem 1rem;
     background-color: #f1f3f5;
-    border-radius: 8px;
+    border-bottom: 1px solid #e9ecef;
 }
 
 .link-label {
     font-size: 0.9rem;
     font-weight: 500;
     color: #495057;
+    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .link-container {
     display: flex;
     align-items: center;
-    padding: .5rem 0;
-    gap: .5rem;
-    /* background-color: white;;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: white;
 }
 
 .link-text {
@@ -115,6 +116,11 @@ header h1 {
     border-radius: 4px;
     background-color: #f8f9fa;
     min-height: 40px;
+}
+
+.link-text.placeholder {
+    color: #adb5bd;
+    font-style: italic;
 }
 
 .copy-btn {
@@ -141,6 +147,18 @@ header h1 {
 .copy-btn.success {
     background-color: #37b24d;
     color: white;
+}
+
+.copy-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #e9ecef;
+    color: #adb5bd;
+}
+
+.copy-btn:disabled:hover {
+    background-color: #e9ecef;
+    color: #adb5bd;
 }
 
 footer {

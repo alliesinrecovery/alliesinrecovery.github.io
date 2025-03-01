@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const link1Text = document.getElementById('link1');
     const link4Text = document.getElementById('link4');
     const copyButtons = document.querySelectorAll('.copy-btn');
+    const placeholderText = 'https://alliesinrecovery.net/members/{username}/profile/edit/group/{group}/';
 
     // Base URL for the links
     const baseUrl = 'https://alliesinrecovery.net/members/';
@@ -10,14 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to generate links based on username
     function generateLinks(username) {
         if (!username) {
-            link1Text.textContent = '';
-            link4Text.textContent = '';
+            link1Text.textContent = placeholderText.replace('{username}', '...').replace('{group}', '1');
+            link4Text.textContent = placeholderText.replace('{username}', '...').replace('{group}', '4');
+            link1Text.classList.add('placeholder');
+            link4Text.classList.add('placeholder');
+            copyButtons.forEach(btn => btn.disabled = true);
             return;
         }
 
         link1Text.textContent = `${baseUrl}${username}/profile/edit/group/1/`;
         link4Text.textContent = `${baseUrl}${username}/profile/edit/group/4/`;
+        link1Text.classList.remove('placeholder');
+        link4Text.classList.remove('placeholder');
+        copyButtons.forEach(btn => btn.disabled = false);
     }
+
+    // Initialize with placeholder
+    generateLinks('');
 
     // Handle username input
     usernameInput.addEventListener('input', (e) => {
@@ -27,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle copy functionality
     copyButtons.forEach(button => {
         button.addEventListener('click', async () => {
+            if (button.disabled) return;
+            
             const targetId = button.getAttribute('data-target');
             const targetElement = document.getElementById(targetId);
             const textToCopy = targetElement.textContent;
