@@ -99,10 +99,9 @@ header h1 {
 .link-container {
     display: flex;
     align-items: center;
-    padding: .5rem 0;
+    padding: .5rem;
     gap: .5rem;
     position: relative;
-    /* background-color: white; */
 }
 
 .link-text {
@@ -162,7 +161,7 @@ header h1 {
     z-index: 100;
 }
 
-.copy-btn:hover::after {
+.copy-btn:not(:disabled):hover::after {
     opacity: 1;
     visibility: visible;
 }
