@@ -99,9 +99,9 @@ header h1 {
 .link-container {
     display: flex;
     align-items: center;
-    padding: 1rem 0;
-    gap: 1rem;
-    background-color: white;
+    padding: .5rem 0;
+    gap: .5rem;
+    /* background-color: white;;
 }
 
 .link-text {
