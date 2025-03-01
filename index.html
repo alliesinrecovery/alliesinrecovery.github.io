@@ -7,35 +7,44 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- Add Font Awesome for copy icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Allies in Recovery Link Generator</h1>
+            <h1>Link Generator</h1>
+            <p class="subtitle">Generate member profile links for Allies in Recovery</p>
         </header>
         <main>
             <div class="generator-form">
                 <div class="input-group">
-                    <label for="username">Enter Username:</label>
-                    <input type="text" id="username" placeholder="Enter username" autocomplete="off">
+                    <input type="text" 
+                           id="username" 
+                           placeholder="Enter username" 
+                           autocomplete="off"
+                           spellcheck="false">
                 </div>
                 
                 <div class="generated-links">
                     <div class="link-group">
-                        <label>Group 1 Link:</label>
+                        <div class="link-header">
+                            <span class="link-label">Group 1 Link</span>
+                        </div>
                         <div class="link-container">
-                            <input type="text" id="link1" readonly>
-                            <button class="copy-btn" data-target="link1">
+                            <p id="link1" class="link-text"></p>
+                            <button class="copy-btn" data-target="link1" title="Copy link">
                                 <i class="fas fa-copy"></i>
                             </button>
                         </div>
                     </div>
                     
                     <div class="link-group">
-                        <label>Group 4 Link:</label>
+                        <div class="link-header">
+                            <span class="link-label">Group 4 Link</span>
+                        </div>
                         <div class="link-container">
-                            <input type="text" id="link4" readonly>
-                            <button class="copy-btn" data-target="link4">
+                            <p id="link4" class="link-text"></p>
+                            <button class="copy-btn" data-target="link4" title="Copy link">
                                 <i class="fas fa-copy"></i>
                             </button>
                         </div>
@@ -44,7 +53,7 @@
             </div>
         </main>
         <footer>
-            <p>&copy; 2024 Allies in Recovery. All rights reserved.</p>
+            <p>&copy; 2024 Allies in Recovery</p>
         </footer>
     </div>
     <script src="js/main.js"></script>
