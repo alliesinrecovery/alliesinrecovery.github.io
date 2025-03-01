@@ -1,0 +1,16 @@
+.link-text.placeholder {
+    color: #adb5bd;
+    font-style: italic;
+}
+
+.copy-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #e9ecef;
+    color: #adb5bd;
+}
+
+.copy-btn:disabled:hover {
+    background-color: #e9ecef;
+    color: #adb5bd;
+} 
