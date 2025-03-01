@@ -145,9 +145,10 @@ header h1 {
 
 .copy-btn::after {
     content: attr(data-tooltip);
-    position: fixed;
-    transform: translate(452%, -170%);
-    left: 50%;
+    position: absolute;
+    bottom: 100%;
+    left: 20%;
+    transform: translateX(-50%);
     padding: 4px 8px;
     background-color: rgba(73, 80, 87, 0.95);
     color: white;
@@ -159,6 +160,7 @@ header h1 {
     transition: all 0.2s ease;
     pointer-events: none;
     z-index: 100;
+    margin-bottom: 8px;
 }
 
 .copy-btn:not(:disabled):hover::after {
